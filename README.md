@@ -2,7 +2,7 @@
 SSADM video sharing applicataion
 The goal of this project is to create a youtube like video sharing application for web.
 
-Used technologies
+# Used technologies
 - Symfony
   - Doctrine 2 - ORM
   - Twig
@@ -11,7 +11,7 @@ Used technologies
 - Angular JS ??
 - Jquery ??
 
-User roles
+# User roles
 - Non registered users
   - create account
   - watch videos
