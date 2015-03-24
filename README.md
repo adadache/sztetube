@@ -1,5 +1,6 @@
-# sztetube
-SSADM video sharing applicataion
+# SZTE Tube
+An SSADM video sharing applicataion.
+
 The goal of this project is to create a youtube like video sharing application for web.
 
 # Used technologies
