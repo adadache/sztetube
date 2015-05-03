@@ -1,43 +1,4 @@
-/* 
-* Table creator 
-*
-*
-* http://www.tagsforlikes.com/
-$('.tags:nth-of-type(7) .row').first().remove();
-$('.tags:nth-of-type(7) .row').last().remove();
-$('h6').remove();
-$('br').remove();
-var tags = [];
-$('h3 a').each(function(){
-	var category = $(this).text();
-	category = category.replace("►  ", "");
-	if (category !== ''){
-		var subCat = [];					
-		$(this).parents('.aisle').find('h4').each(function(){
-			var name = $(this).text();
-			var tags = $(this).next().text();
-			tags = tags.replace("#", "");
-			tags = tags.split(" ");
-
-			subCat.push({
-				name: name,
-				tags: tags
-			});						
-		});
-		var cat = { 
-			name: category,
-			subCat: subCat
-		};
-		tags.push(cat);
-
-	}
-	
-});
-*/
-/* JSON OBJECT DATA
-[{"name":"Nature Tags","subCat":[{"name":"General","tags":["nature","#TagsForLikes.com","#TagsForLikesApp","#sky","#sun","#summer","#beach","#beautiful","#pretty","#sunset","#sunrise","#blue","#flowers","#night","#tree","#twilight","#clouds","#beauty","#light","#cloudporn","#photooftheday","#love","#green","#skylovers","#dusk","#weather","#day","#red","#iphonesia","#mothernature"]},{"name":"Beach","tags":["beach","#sun","#nature","#water","#TagsForLikes.com","#TagsForLikesApp","#TFLers","#ocean","#lake","#instagood","#photooftheday","#beautiful","#sky","#clouds","#cloudporn","#fun","#pretty","#sand","#reflection","#amazing","#beauty","#beautiful","#shore","#waterfoam","#seashore","#waves","#wave"]},{"name":"Sunset / Sunrise","tags":["sunset","#sunrise","#sun","#TagsForLikes.com","#TagsForLikesApp","#TFLers","#pretty","#beautiful","#red","#orange","#pink","#sky","#skyporn","#cloudporn","#nature","#clouds","#horizon","#photooftheday","#instagood","#gorgeous","#warm","#view","#night","#morning","#silhouette","#instasky","#all_sunsets"]},{"name":"Flowers","tags":["flowers","#flower","#TagsForLikes.com","#petal","#petals","#nature","#beautiful","#love","#pretty","#plants","#blossom","#sopretty","#spring","#summer","#flowerstagram","#flowersofinstagram","#flowerstyles_gf","#flowerslovers","#flowerporn","#botanical","#floral","#florals","#insta_pick_blossom","#flowermagic","#instablooms","#bloom","#blooms","#botanical","#floweroftheday"]}]},{"name":"Weather / Seasons Tags","subCat":[{"name":"Sunny","tags":["sun","#sunny","#sunnyday","#TagsForLikes.com","#TagsForLikesApp","#sunnydays","#sunlight","#light","#sunshine","#shine","#nature","#sky","#skywatcher","#thesun","#sunrays","#photooftheday","#beautiful","#beautifulday","#weather","#summer","#goodday","#goodweather","#instasunny","#instasun","#instagood","#clearskies","#clearsky","#blueskies","#lookup","#bright","#brightsun"]},{"name":"Cloudy","tags":["clouds","#cloud","#cloudporn","#TagsForLikes.com","#TagsForLikesApp","#weather","#lookup","#sky","#skies","#skyporn","#cloudy","#instacloud","#instaclouds","#instagood","#nature","#beautiful","#gloomy","#skyline","#horizon","#overcast","#instasky","#epicsky","#crazyclouds","#photooftheday","#cloud_skye","#skyback","#insta_sky_lovers","#iskyhub"]},{"name":"Raining","tags":["rain","#raining","#rainyday","#TagsForLikes.com","#TagsForLikesApp","#pouring","#rainydays","#water","#clouds","#cloudy","#photooftheday","#puddle","#umbrella","#instagood","#gloomy","#rainyweather","#rainydayz","#splash","#TFLers","#downpour","#instarain"]},{"name":"Snowing","tags":["snow","#snowing","#winter","#TagsForLikes.com","#cold","#ice","#white","#weather","#sky","#skies","#frosty","#frost","#chilly","#TFLers","#nature","#snowflakes","#instagood","#instawinter","#instasnow","#photooftheday","#snowfall","#blizzard"]},{"name":"Spring","tags":["spring","#blossom","#flowers","#TagsForLikes.com","#beautiful","#season","#seasons","#instaspring","#instagood","#springtime","#color","#ilovespring","#warm","#sunny","#sun","#tree","#pretty","#TFLers","#trees","#flower","#bloom","#colorful"]},{"name":"Summer","tags":["summer","#summertime","#sun","#TagsForLikes.com","#hot","#sunny","#warm","#fun","#beautiful","#sky","#clearskys","#season","#seasons","#instagood","#instasummer","#photooftheday","#nature","#TFLers","#clearsky","#bluesky","#vacationtime","#weather","#summerweather","#sunshine","#summertimeshine"]},{"name":"Fall","tags":["fall","#autumn","#leaves","#TagsForLikes.com","#falltime","#season","#seasons","#instafall","#instagood","#TFLers","#instaautumn","#photooftheday","#leaf","#foliage","#colorful","#orange","#red","#autumnweather","#fallweather","#nature"]},{"name":"Winter","tags":["winter","#cold","#holidays","#TagsForLikes.com","#TagsForLikesApp","#snow","#rain","#christmas","#snowing","#blizzard","#snowflakes","#wintertime","#staywarm","#cloudy","#instawinter","#instagood","#holidayseason","#photooftheday","#season","#seasons","#nature"]}]},{"name":"Animal Tags","subCat":[{"name":"General","tags":["animals","#animal","#pet","#TagsForLikes.com","#TagsForLikesApp","#dog","#cat","#dogs","#cats","#photooftheday","#cute","#pets","#instagood","#animales","#cute","#love","#nature","#animallovers","#pets_of_instagram","#petstagram","#petsagram"]},{"name":"Dogs","tags":["dog","#dog","#puppy","#pup","#TagsForLikes.com","#TagsForLikesApp","#cute","#eyes","#instagood","#dogs_of_instagram","#pet","#pets","#animal","#animals","#petstagram","#petsagram","#dogsitting","#photooftheday","#dogsofinstagram","#ilovemydog","#instagramdogs","#nature","#dogstagram","#dogoftheday","#lovedogs","#lovepuppies","#hound","#adorable","#doglover","#instapuppy","#instadog"]},{"name":"Cats","tags":["cat","#cats","#TagsForLikes.com","#TagsForLikesApp","#catsagram","#catstagram","#instagood","#kitten","#kitty","#kittens","#pet","#pets","#animal","#animals","#petstagram","#petsagram","#photooftheday","#catsofinstagram","#ilovemycat","#instagramcats","#nature","#catoftheday","#lovecats","#furry","#sleeping","#lovekittens","#adorable","#catlover","#instacat"]},{"name":"Horses","tags":["horses","#horse","#horsesofinstagram","#TagsForLikes.com","#TagsForLikesApp","#horseshow","#horseshoe","#horses_of_instagram","#horsestagram","#instahorses","#wild","#mane","#instagood","#grass","#field","#farm","#nature","#pony","#ponies","#ilovemyhorse","#babyhorse","#beautiful","#pretty","#photooftheday","#gallop","#jockey","#rider","#riders","#riding"]},{"name":"Insects","tags":["insects","#insect","#bug","#bugs","#TagsForLikes.com","#TagsForLikesApp","#bugslife","#macro","#closeup","#nature","#animals","#animals","#instanature","#instagood","#macrogardener","#macrophotography","#creature","#creatures","#macro_creature_feature","#photooftheday","#wildlife","#nature_shooters","#earth","#naturelover","#lovenature"]},{"name":"Fish","tags":["fish","#aquarium","#fishtank","#TagsForLikes.com","#TagsForLikesApp","#fishporn","#instafish","#instagood","#swim","#swimming","#water","#coral","#reef","#reeftank","#tropical","#tropicalfish","#aquaria","#photooftheday","#saltwater","#freshwater","#beautiful","#ocean","#watertank"]}]},{"name":"Social / People Tags","subCat":[{"name":"General","tags":["love","#TagsForLikes.com","#TagsForLikesApp","#photooftheday","#me","#instamood","#cute","#igers","#picoftheday","#girl","#guy","#beautiful","#fashion","#instagramers","#follow","#smile","#pretty","#followme","#friends","#hair","#swag","#photo","#life","#funny","#cool","#hot","#bored","#portrait","#baby","#girls","#iphonesia"]},{"name":"Selfies","tags":["selfie","#selfienation","#selfies","#TagsForLikes.COM","#TFLers","#TagsForLikesApp","#me","#love","#pretty","#handsome","#instagood","#instaselfie","#selfietime","#face","#shamelessselefie","#life","#hair","#portrait","#igers","#fun","#followme","#instalove","#smile","#igdaily","#eyes","#follow"]},{"name":"Girls","tags":["girl","#girls","#love","#TagsForLikes.com","#TFLers","#me","#cute","#picoftheday","#beautiful","#photooftheday","#instagood","#fun","#smile","#pretty","#follow","#followme","#hair","#friends","#lady","#swag","#hot","#cool","#kik","#fashion","#igers","#instagramers","#style","#sweet","#eyes","#beauty"]},{"name":"Guys","tags":["guys","#guy","#boy","#TagsForLikes.com","#TFLers","#boys","#love","#me","#cute","#handsome","#picoftheday","#photooftheday","#instagood","#fun","#smile","#dude","#follow","#followme","#swag","#hot","#cool","#kik","#igers","#instagramers","#eyes"]},{"name":"Love","tags":["love","#couple","#cute","#adorable","#TagsForLikes.com","#TagsForLikesApp","#kiss","#kisses","#hugs","#romance","#forever","#girlfriend","#boyfriend","#gf","#bf","#bff","#together","#photooftheday","#happy","#me","#girl","#boy","#beautiful","#instagood","#instalove","#loveher","#lovehim","#pretty","#fun","#smile","#xoxo"]},{"name":"Friends","tags":["friend","#friends","#fun","#TagsForLikes.com","#TagsForLikesApp","#funny","#love","#instagood","#igers","#friendship","#party","#chill","#happy","#cute","#photooftheday","#live","#forever","#smile","#bff","#bf","#gf","#best","#bestfriend","#lovethem","#bestfriends","#goodfriends","#besties","#awesome","#memories","#goodtimes","#goodtime"]},{"name":"Good Morning","tags":["goodmorning","#morning","#day","#TagsForLikes.com","#daytime","#sunrise","#morn","#awake","#wakeup","#wake","#wakingup","#ready","#sleepy","#breakfast","#tired","#sluggish","#bed","#snooze","#instagood","#earlybird","#sky","#photooftheday","#gettingready","#goingout","#sunshine","#instamorning","#work","#early","#fresh","#refreshed"]},{"name":"Good Night","tags":["goodnight","#night","#nighttime","#TagsForLikes.com","#sleep","#sleeptime","#sleepy","#sleepyhead","#tired","#goodday","#instagood","#instagoodnight","#photooftheday","#nightynight","#lightsout","#bed","#bedtime","#rest","#nightowl","#dark","#moonlight","#moon","#out","#passout","#knockout","#knockedout"]}]},{"name":"Holidays / Celebrations Tags","subCat":[{"name":"Party","tags":["party","#partying","#fun","#TagsForLikes.com","#TagsForLikesApp","#instaparty","#instafun","#instagood","#bestoftheday","#crazy","#friend","#friends","#besties","#guys","#girls","#chill","#chilling","#kickit","#kickinit","#cool","#love","#memories","#night","#smile","#music","#outfit","#funtime","#funtimes","#goodtime","#goodtimes","#happy"]},{"name":"Birthday","tags":["birthday","#bday","#party","#TagsForLikes.com","#instabday","#bestoftheday","#birthdaycake","#cake","#friends","#celebrate","#photooftheday","#instagood","#candle","#candles","#happy","#young","#old","#years","#instacake","#happybirthday","#instabirthday","#born","#family"]},{"name":"Wedding","tags":["wedding","#party","#weddingparty","#TagsForLikes.com","#celebration","#bride","#groom","#bridesmaids","#happy","#happiness","#unforgettable","#love","#forever","#weddingdress","#weddinggown","#weddingcake","#family","#smiles","#together","#ceremony","#romance","#marriage","#weddingday","#flowers","#celebrate","#instawed","#instawedding","#party","#congrats","#congratulations"]},{"name":"Thanksgiving","tags":["thanksgiving","#thanks","#giving","#TagsForLikes.com","#turkey","#turkeyday","#food","#foodporn","#holiday","#family","#friends","#love","#instagood","#photooftheday","#happythanksgiving","#celebrate","#stuffing","#feast","#thankful","#blessed","#fun"]},{"name":"Halloween","tags":["halloween","#oct","#october","#31","#TagsForLikes.com","#scary","#spooky","#boo","#scared","#costume","#ghost","#pumpkin","#pumpkins","#pumpkinpatch","#carving","#candy","#orange","#jackolantern","#creepy","#fall","#trickortreat","#trick","#treat","#instagood","#party","#holiday","#celebrate","#bestoftheday","#hauntedhouse","#haunted"]},{"name":"Christmas","tags":["christmas","#holidays","#tistheseason","#TagsForLikesApp","#TagsForLikes.com","#holiday","#winter","#instagood","#happyholidays","#elves","#lights","#presents","#gifts","#gift","#tree","#decorations","#ornaments","#carols","#santa","#santaclaus","#christmas2014","#photooftheday","#love","#xmas","#red","#green","#christmastree","#family","#jolly","#snow","#merrychristmas"]},{"name":"New Years Day","tags":["happynewyear","#newyearsday","#newyear","#TagsForLikesApp","#TagsForLikes.com","#2015","#2014","#newyearseve","#newyears","#newyears2015","#bye2014","#hello2015","#donewith2014","#TFLers","#newyearsresolution","#goals","#dec31","#jan1","#dec312013","#jan12014","#instagood","#celebration","#photooftheday","#newyearscelebration","#newyearsparty","#party","#celebrate","#fun"]},{"name":"Holidays","tags":["happyholidays","#holidays","#holiday","#TagsForLikesApp","#TagsForLikes.com","#vacation","#winter2014","#2014","#2015","#happyholidays2014","#presents","#parties","#fun","#happy","#family","#love"]}]},{"name":"Family Tags","subCat":[{"name":"General","tags":["family","#fam","#mom","#dad","#TagsForLikes.com","#brother","#sister","#brothers","#sisters","#bro","#sis","#siblings","#love","#instagood","#father","#mother","#related","#fun","#photooftheday","#children","#kids","#life","#happy","#familytime","#cute","#smile","#fun"]},{"name":"Babies","tags":["baby","#babies","#adorable","#cute","#TagsForLikes.com","#cuddly","#cuddle","#small","#lovely","#love","#instagood","#kid","#kids","#beautiful","#life","#sleep","#sleeping","#children","#happy","#igbabies","#childrenphoto","#toddler","#instababy","#infant","#young","#photooftheday","#sweet","#tiny","#little","#family"]},{"name":"Kids","tags":["kids","#kid","#instakids","#TagsForLikes.com","#child","#children","#childrenphoto","#love","#cute","#adorable","#instagood","#young","#sweet","#pretty","#handsome","#little","#photooftheday","#fun","#family","#baby","#instababy","#play","#happy","#smile","#instacute"]}]},{"name":"Art / Photography Tags","subCat":[{"name":"Art","tags":["art","#illustration","#drawing","#draw","#TagsForLikes.com","#picture","#artist","#sketch","#sketchbook","#paper","#pen","#pencil","#artsy","#instaart","#beautiful","#instagood","#gallery","#masterpiece","#creative","#photooftheday","#instaartist","#graphic","#graphics","#artoftheday"]},{"name":"Photography","tags":["photo","#photos","#pic","#pics","#TagsForLikes.com","#picture","#pictures","#snapshot","#art","#beautiful","#instagood","#picoftheday","#photooftheday","#color","#all_shots","#exposure","#composition","#focus","#capture","#moment"]},{"name":"HDR","tags":["hdr","#hdriphoneographer","#TagsForLikes.com","#hdrspotters","#hdrstyles_gf","#hdri","#hdroftheday","#hdriphonegraphy","#hdrepublic","#hdr_lovers","#awesome_hdr","#instagood #hdrphotography","#photooftheday","#hdrimage","#hdr_gallery","#hdr_love","#hdrfreak","#hdrama","#hdrart","#hdrphoto","#hdrfusion","#hdrmania","#hdrstyles","#ihdr","#str8hdr","#hdr_edits"]},{"name":"Black & White","tags":["blackandwhite","#bnw","#monochrome","#TagsForLikes.com","#instablackandwhite","#monoart","#insta_bw","#bnw_society","#bw_lover","#bw_photooftheday","#photooftheday","#bw","#instagood","#bw_society","#bw_crew","#bwwednesday","#insta_pick_bw","#bwstyles_gf","#irox_bw","#igersbnw","#bwstyleoftheday","#monotone","#monochromatic#noir","#fineart_photobw"]},{"name":"Minimalism","tags":["minimalism","#minimalist","#minimal","#TagsForLikes.com","#minimalistic","#minimalistics","#minimalove","#minimalobsession","#photooftheday","#minimalninja","#instaminim","#minimalisbd","#simple","#simplicity","#keepitsimple","#minimalplanet","#love","#instagood","#minimalhunter","#minimalista","#minimalismo","#beautiful","#art","#lessismore","#simpleandpure","#negativespace"]},{"name":"Abstract","tags":["abstract","#art","#abstractart","#TagsForLikes.com","#abstracters_anonymous","#abstract_buff","#abstraction","#instagood","#creative","#artsy","#beautiful","#photooftheday","#abstracto","#stayabstract","#instaabstract"]},{"name":"Instagram","tags":["instagrammers","#igers","#TagsForLikes.com","#instalove","#instamood","#instagood","#followme","#follow","#comment","#shoutout","#iphoneography","#androidography","#filter","#filters","#hipster","#contests","#photo","#instadaily","#igaddict","#TFLers","#photooftheday","#pics","#insta","#picoftheday","#bestoftheday","#instadaily","#instafamous","#popularpic","#popularphoto"]}]},{"name":"Urban Tags","subCat":[{"name":"Architecture","tags":["architecture","#building","#TagsForLikes.com","#architexture","#city","#buildings","#skyscraper","#urban","#design","#minimal","#cities","#town","#street","#art","#arts","#architecturelovers","#abstract","#lines","#instagood","#beautiful","#archilovers","#architectureporn","#lookingup","#style","#archidaily","#composition","#geometry","#perspective","#geometric","#pattern"]},{"name":"Street Art","tags":["streetart","#street","#streetphotography","#TagsForLikes.com","#sprayart","#urban","#urbanart","#urbanwalls","#wall","#wallporn","#graffitiigers","#stencilart","#art","#graffiti","#instagraffiti","#instagood","#artwork","#mural","#graffitiporn","#photooftheday","#stencil","#streetartistry","#stickerart","#pasteup","#instagraff","#instagrafite","#streetarteverywhere"]},{"name":"VSCO","tags":["vsco","#vscocam","#vscogood","#TagsForLikes.com","#vscophile","#vscogrid","#vscogram","#vscorussia","#vscodaily","#liveauthentic","#vscobest","#bestofvsco","#livefolk","#vscoedit","#vscofilm","#vsco_hub","#vscofeature","#vscoonly","#TagsForLikesApp","#justgoshoot","#vsconature","#vscolove","#vscophoto","#vscobrasil","#vscostyle","#vscoturkey","#vscoaward","#topvsco","#instavsco","#vscolover","#vscomoment"]},{"name":"VSCO 2","tags":["vscoeurope","#afterlight","#vscolife","#TagsForLikes.com","#vscoism","#vscovisuals","#vscoapp","#vscoartist","#vscogallery","#vscoph","#vscocamphotos","#visualsoflife","#igmasters","#visualsgang","#vscolovers","#vscovibe","#letsgosomewhere","#TagsForLikesApp","#neverstopexploring","#vscoexpo","#vscocamgram","#vscogang","#streetdreamsmag","#vscocamonly","#socality","#vscomania","#lifeofadventure","#vscocool","#vscomoscow","#peoplescreatives","#thatsdarling"]}]},{"name":"Food Tags","subCat":[{"name":"General","tags":["food","#foodporn","#yum","#instafood","#TagsForLikes.com","#yummy","#amazing","#instagood","#photooftheday","#sweet","#dinner","#lunch","#breakfast","#fresh","#tasty","#food","#delish","#delicious","#eating","#foodpic","#foodpics","#eat","#hungry","#foodgasm","#hot","#foods"]},{"name":"Dessert","tags":["dessert","#food","#desserts","#TagsForLikes.com","#yum","#yummy","#amazing","#instagood","#instafood","#sweet","#chocolate","#cake","#icecream","#dessertporn","#delish","#foods","#delicious","#tasty","#eat","#eating","#hungry","#foodpics","#sweettooth"]},{"name":"Drinks","tags":["drink","#drinks","#slurp","#TagsForLikes.com","#pub","#bar","#liquor","#yum","#yummy","#thirst","#thirsty","#instagood","#cocktail","#cocktails","#drinkup","#glass","#can","#photooftheday","#beer","#beers","#wine"]},{"name":"Coffee","tags":["coffee","#cafe","#instacoffee","#TagsForLikes.com","#cafelife","#caffeine","#hot","#mug","#drink","#coffeeaddict","#coffeegram","#coffeeoftheday","#cotd","#coffeelover","#coffeelovers","#coffeeholic","#coffiecup","#coffeelove","#coffeemug","#TagsForLikesApp","#coffeeholic","#coffeelife"]},{"name":"Tea","tags":["tea","#teatime","#instatea","#TagsForLikes.com","#tealife","#ilovetea","#teaaddict","#tealover","#tealovers","#teagram","#healthy","#drink","#hot","#mug","#teaoftheday","#teacup","#teastagram","#TagsForLikesApp","#teaholic","#tealove","#tealife"]}]},{"name":"Fashion Tags","subCat":[{"name":"Fashion","tags":["fashion","#style","#stylish","#love","#TagsForLikes.com","#me","#cute","#photooftheday","#nails","#hair","#beauty","#beautiful","#instagood","#pretty","#swag","#pink","#girl","#girls","#eyes","#design","#model","#dress","#shoes","#heels","#styles","#outfit","#purse","#jewelry","#shopping","#glam"]},{"name":"Fashion (Girls)","tags":["fashion","#style","#stylish","#love","#TagsForLikes.com","#me","#cute","#photooftheday","#nails","#hair","#beauty","#beautiful","#instagood","#instafashion","#pretty","#girly","#pink","#girl","#girls","#eyes","#model","#dress","#skirt","#shoes","#heels","#styles","#outfit","#purse","#jewelry","#shopping"]},{"name":"Fashion (Guys)","tags":["fashion","#swag","#style","#stylish","#TagsForLikes.com","#me","#swagger","#cute","#photooftheday","#jacket","#hair","#pants","#shirt","#instagood","#handsome","#cool","#polo","#swagg","#guy","#boy","#boys","#man","#model","#tshirt","#shoes","#sneakers","#styles","#jeans","#fresh","#dope"]},{"name":"OOTD / Outfit Of The Day","tags":["ootd","#outfitoftheday","#lookoftheday","#TagsForLikes.com","#TFLers","#fashion","#fashiongram","#style","#love","#beautiful","#currentlywearing","#lookbook","#wiwt","#whatiwore","#whatiworetoday","#ootdshare","#outfit","#clothes","#wiw","#mylook","#fashionista","#todayimwearing","#instastyle","#TagsForLikesApp","#instafashion","#outfitpost","#fashionpost","#todaysoutfit","#fashiondiaries"]},{"name":"Nails","tags":["nails","#nail","#fashion","#style","#TagsForLikes.com","#cute","#beauty","#beautiful","#instagood","#pretty","#girl","#girls","#stylish","#sparkles","#styles","#gliter","#nailart","#art","#opi","#photooftheday","#essie","#unhas","#preto","#branco","#rosa","#love","#shiny","#polish","#nailpolish","#nailswag"]},{"name":"Hair","tags":["hair","#hairstyle","#instahair","#TagsForLikes.com","#hairstyles","#haircolour","#haircolor","#hairdye","#hairdo","#haircut","#longhairdontcare","#braid","#fashion","#instafashion","#straighthair","#longhair","#style","#straight","#curly","#black","#brown","#blonde","#brunette","#hairoftheday","#hairideas","#braidideas","#perfectcurls","#hairfashion","#hairofinstagram","#coolhair"]},{"name":"Makeup","tags":["makeup","#instamakeup","#cosmetic","#cosmetics","#TagsForLikes.com","#TFLers","#fashion","#eyeshadow","#lipstick","#gloss","#mascara","#palettes","#eyeliner","#lip","#lips","#tar","#concealer","#foundation","#powder","#eyes","#eyebrows","#lashes","#lash","#glue","#glitter","#crease","#primers","#base","#beauty","#beautiful"]},{"name":"Jewelry","tags":["jewelry","#jewels","#jewel","#TagsForLikes.com","#fashion","#gems","#gem","#gemstone","#bling","#stones","#stone","#trendy","#accessories","#love","#crystals","#beautiful","#ootd","#style","#fashionista","#accessory","#instajewelry","#stylish","#cute","#jewelrygram","#TagsForLikesApp","#fashionjewelry"]},{"name":"Bracelets","tags":["bracelets","#bracelet","#TagsForLikes.com","#armcandy","#armswag","#wristgame","#pretty","#love","#beautiful","#braceletstacks","#trendy","#instagood","#fashion","#braceletsoftheday","#jewelry","#fashionlovers","#fashionista","#accessories","#TagsForLikesApp","#armparty","#wristwear"]},{"name":"Earrings","tags":["earrings","#earring","#earringsoftheday","#TagsForLikes.com","#jewelry","#fashion","#accessories","#earringaddict","#earringstagram","#fashionista","#girl","#stylish","#love","#beautiful","#piercing","#piercings","#pierced","#cute","#gorgeous","#trendy","#earringswag","#TagsForLikesApp","#earringfashion","#earringlove"]},{"name":"High Heels","tags":["highheels","#heels","#platgorm","#TagsForLikes.com","#fashion","#style","#stylish","#love","#cute","#photooftheday","#tall","#beauty","#beautiful","#instafashion","#girl","#girls","#model","#shoes","#styles","#outfit","#instaheels","#fashionshoes","#shoelover","#instashoes","#highheelshoes","#trendy","#heelsaddict","#loveheels","#iloveheels","#shoestagram"]},{"name":"Sneakers","tags":["shoes","#shoe","#kicks","#TagsForLikes.com","#instashoes","#instakicks","#sneakers","#sneaker","#sneakerhead","#sneakerheads","#solecollector","#soleonfire","#nicekicks","#igsneakercommunity","#sneakerfreak","#sneakerporn","#shoeporn","#fashion","#swag","#instagood","#fresh","#photooftheday","#nike","#sneakerholics","#sneakerfiend","#shoegasm","#kickstagram","#walklikeus","#peepmysneaks","#flykicks"]},{"name":"Tattoos","tags":["tattoo","#tattoos","#tat","#ink","#inked","#TagsForLikes.com","#TFLers","#tattooed","#tattoist","#coverup","#art","#design","#instaart","#instagood","#sleevetattoo","#handtattoo","#chesttattoo","#photooftheday","#tatted","#instatattoo","#bodyart","#tatts","#tats","#amazingink","#tattedup","#inkedup"]},{"name":"Piercings","tags":["piercing","#piercings","#pierced","#TagsForLikes.com","#TFLers","#bellyrings","#navel","#earlobe","#ear","#photooftheday","#bellybuttonring","#lipring","#instagood","#modifications","#bodymods","#piercingaddict","#bellybar","#bellybuttonpiercing"]}]},{"name":"Celebrities Tags","subCat":[{"name":"One Direction","tags":["onedirection","#TagsForLikesApp","#harrystyles","#niallhoran","#zaynmalik","#louistomlinson","#liampayne","#TagsForLikes.com","#1d","#directioner","#1direction","#niall","#harry","#zayn","#liam","#louis","#leeyum","#zjmalik","#iphonesia","#hot","#love","#cute","#happy","#beautiful","#boys","#guys","#instagood","#photooftheday"]},{"name":"Justin Bieber","tags":["justin","#bieber","#bieberfever","#TagsForLikes.com","#TFLers","#beiber","#beiberfever","#justinbieberswag","#hot","#cool","#boyfriend","#justindrewbieber","#instagood","#photooftheday","#juju","#justinb","#justindb","#justinb","#forever","#biebs","#neversaynever","#belieber","#believe","#believetour","#TagsForLikesApp","#bieberlove"]},{"name":"Taylor Swift","tags":["taylor","#swift","#taylorswift","#music","#TagsForLikes.com","#TFLers","#country","#singer","#singing","#song","#instagood","#swifties","#sweet","#cute","#beautiful","#love","#girl","#pretty","#swiftie","#flawless","#photooftheday","#awesome","#tswift","#TagsForLikesApp","#lovesong"]},{"name":"Katy Perry","tags":["katy","#perry","#katyperry","#TagsForLikes.com","#TFLers","#pretty","#beautiful","#music","#lovethissong","#kp","#katykats","#katykat","#katycats","#katycat","#caligirls","#californiagirls","#partofme","#smile","#instagood","#instaperry","#love","#photooftheday","#extraterrestrial","#teenagedream","#wideawake"]},{"name":"Liam Payne","tags":["liampayne","#liam","#payne","#onedirection","#TagsForLikes.com","#1d","#directioner","#1direction","#photooftheday#leeyum","#leeyumm","#leeyumpayne","#brilliam","#hot","#love","#instagood","#cute","#happy","#boys","#guys"]},{"name":"Niall Horan","tags":["niallhoran","#niall","#horan","#onedirection","#TagsForLikes.com","#1d","#directioner","#1direction","#hot","#love","#cute","#happy","#boys","#guys","#nialler","#niallerhoran","#photooftheday","#niallerwins","#niallers","#guy","#instagood","#nialljameshoran","#niallisbeautiful","#nialhoranfacts","#niallimagine","#niallisperfect"]},{"name":"Louis Tomlinson","tags":["louistomlinson","#louis","#tomlinson","#onedirection","#TagsForLikes.com","#1d","#directioner","#1direction","#hot","#love","#cute","#happy","#boys","#guys","#louistomlinsonfacts","#louistomlinsontohostteenchoice2013","#louistomlinsonimagine","#louistomlinsonfanfic","#louistomlinsonfact","#tommo","#lilo","#loulou","#lou","#boobear","#fabulouis"]},{"name":"Zayn Malik","tags":["zaynmalik","#zayn","#malik","#TagsForLikes.com","#onedirection","#1d","#directioner","#malikbaby","#hot","#love","#cute","#happy","#boys","#guys","#handsome","#cool","#instagood","#directioners","#zainmalik","#TFLers","#loveonedirection","#photooftheday","#lovezayn","#lovemalik","#lovedirectioners","#welovezayn","#amazayn","#djmalik"]},{"name":"Harry Styles","tags":["harrystyles","#harry","#styles","#TagsForLikes.com","#onedirection","#1d","#directioner","#1direction","#hot","#love","#cute","#happy","#boys","#guys","#photooftheday","#harrystylesimagine","#instagood","#hazza","#hazzastyles","#harryedwardstyles","#lovedirectioners","#harreh","#harold","#haroldstyles","#harryimagine"]},{"name":"Lil Wayne","tags":["lilwayne","@lilwayneofficial_","#lil","#wayne","#liltunechi","#weezy","#ymcmb","#youngmoney","#cashmoney","#tunechi","#wayniac","#weezyf","#teamweezy","#teamtunechi","#trukfit","#skate","#famous","#follow","#rapper","#tattoo","#rich","#singer","#artist","#hiphop","#music","#thecarter","#artist"]},{"name":"Drake","tags":["drake","#drizzy","#drizzydrake","#TagsForLikes.com","#drakequotes","#ymcmb","#ovoxo","#ovo","#xo","#teamdrizzy","#teamdrake","#instadrake","#instagood","#yolo","#takecare","#headlines","#music","#beat","#photooftheday","#rap","#hiphop","#rapper","#youngmoney","#artist"]},{"name":"Selena Gomez","tags":["selenagomez","#selena","#gomez","#TagsForLikes.com","#selly","#sel","#selenamariegomez","#TFLers","#beautiful","#cute","#instagood","#pretty","#gorgeous","#hair","#selenator","#selenators","#sellyselena","#bestoftheday","#selala","#love","#cutie","#pickles","#wowp","#wizardsofwaverlyplace","#beauty"]},{"name":"Miley Cyrus","tags":["mileycyrus","#miley","#cyrus","#TagsForLikes.com","#mileyraycyrus","#hannahmontana","#hannah","#montana","#disney","#pretty","#disney","#beautiful","#loveher","#smile","#instagood","#instamiley","#instacyrus","#photooftheday","#pop","#music","#TFLers","#breakout","#cantbetamed","#destiny","#smilers","#nobodysperfect","#actress","#singer","#destinyhopecyrus","#destinycyrus"]},{"name":"Demi Lovato","tags":["demilovato","#demi","#lovato","#TagsForLikes.com","#demetria","#lovatics","#lovatic","#lovaticforever","#ddlovato","#devonne","#staystrong","#beautiful","#cute","#instagood","#pretty","#giveyourheartabreak","#skyscraper","#gorgeous","#hair","#love","#cutie","#beauty"]},{"name":"Ariana Grande","tags":["ariana","#arianagrande","#grande","#TagsForLikes.com","#beautiful","#pretty","#cute","#gorgeous","#instagood","#instaariana","#instagrande","#photooftheday","#actress","#arianator","#victorious","#redhair","#teamariana","#catvalentine","#caterinavalentine","#caterina","#cat"]},{"name":"Chris Brown","tags":["chrisbrown","#chris","#brown","#TagsForLikes.com","#cb","#breezy","#chris","#rap","#rapper","#rnb","#TFLers","#teambreezy","#cute","#hot","#instagood","#music","#tattoo","#photooftheday","#singer","#dancer","#awesome","#guy","#chrisbreezy"]},{"name":"Rihanna","tags":["rihanna","#singer","#rihannanavy","#TagsForLikes.com","#navy","#rihannanavi","#rihannafenty","#TFLers","#rihannadiamonds","#instagood","#diamonds","#unapologetic","#riri","#photooftheday","#music","#pop","#robyn","#fenty","#rih","#rihnavy","#beautiful","#pretty","#robynfenty"]},{"name":"Austin Mahone","tags":["austin","#mahone","#austinmahone","#TagsForLikes.com","#TagsForLikesApp","#amahone","#austinm","#mahomie","#texas","#singer","#amazing","#talented","#instagood","#instafollow","#love","#mahomies","#mahomiegram","#mahomieforever","#saysomething","#sayyourejustafriend","#whataboutlove","#bangabanga","#followme"]},{"name":"5 Seconds of Summer","tags":["5sos","#5secondsofsummer","#TagsForLikes.com","#luke","#lukehemmings","#lukey","#ashton","#ash","#ashtonirwin","#calum","#cal","#calumhood","#michael","#mike","#michaelclifford","#boyband","#music","#boys","#love","#cute","#amazing","#followme","#5sosfans","#5sosfamily","#5sosfam","#TagsForLikesApp","#fivesecondsofsummer"]}]},{"name":"Entertainment Tags","subCat":[{"name":"Music","tags":["music","#genre","#song","#songs","#TagsForLikes.com","#TagsForLikesApp","#melody","#hiphop","#rnb","#pop","#love","#rap","#dubstep","#instagood","#beat","#beats","#jam","#myjam","#party","#partymusic","#newsong","#lovethissong","#remix","#favoritesong","#bestsong","#photooftheday","#bumpin","#repeat","#listentothis","#goodmusic","#instamusic"]},{"name":"Movies","tags":["movies","#theatre","#video","#TagsForLikes.com","#movie","#film","#films","#videos","#actor","#actress","#cinema","#dvd","#amc","#instamovies","#star","#moviestar","#photooftheday","#hollywood","#goodmovie","#instagood","#flick","#flicks","#instaflick","#instaflicks"]},{"name":"Books","tags":["books","#book","#read","#TagsForLikes.com","#reading","#reader","#page","#pages","#paper","#instagood","#kindle","#nook","#library","#author","#bestoftheday","#bookworm","#readinglist","#love","#photooftheday","#imagine","#plot","#climax","#story","#literature","#literate","#stories","#words","#text"]},{"name":"Video Games","tags":["videogames","#games","#gamer","#TagsForLikes.com","#gaming","#instagaming","#instagamer","#playinggames","#online","#photooftheday","#onlinegaming","#videogameaddict","#instagame","#instagood","#gamestagram","#gamerguy","#gamergirl","#gamin","#video","#game","#igaddict","#winning","#play","#playing"]}]},{"name":"Electronics Tags","subCat":[{"name":"General","tags":["electronics","#technology","#tech","#TagsForLikes.com","#electronic","#device","#gadget","#gadgets","#instatech","#instagood","#geek","#techie","#nerd","#techy","#photooftheday","#computers","#laptops","#hack","#screen"]},{"name":"iPhone","tags":["iphone","#iphoneonly","#apple","#TagsForLikes.com","#appleiphone","#ios","#iphone3g","#iphone3gs","#iphone4","#iphone5","#technology","#electronics","#mobile","#instagood","#instaiphone","#phone","#photooftheday","#smartphone","#iphoneography","#iphonegraphy","#iphoneographer","#iphoneology","#iphoneographers","#iphonegraphic","#iphoneogram","#teamiphone"]},{"name":"Android","tags":["android","#androidonly","#google","#TagsForLikes.com","#googleandroid","#droid","#instandroid","#instaandroid","#instadroid","#instagood","#ics","#jellybean","#samsung","#samsunggalaxys2","#samsunggalaxy","#phone","#smartphone","#mobile","#androidography","#androidographer","#androidinstagram","#androidnesia","#androidcommunity","#teamdroid","#teamandroid"]}]},{"name":"Follow / Shoutout / Like / Comment Tags","subCat":[{"name":"FSLC (Follow / Shoutout / Like / Comment)","tags":["fslc","#followshoutoutlikecomment","#TagsForLikesFSLC","#TagsForLikesApp","#follow","#shoutout","#followme","#comment","#TagsForLikes.com","#f4f","#s4s","#l4l","#c4c","#followback","#shoutoutback","#likeback","#commentback","#love","#instagood","#photooftheday","#pleasefollow","#pleaseshoutout","#pleaselike","#pleasecomment","#teamfslcback","#fslcback","#follows","#shoutouts","#likes","#comments","#fslcalways"]},{"name":"Follow","tags":["follow","#f4f","#followme","#TagsForLikes.com","#TFLers","#TagsForLikesApp","#followforfollow","#follow4follow","#teamfollowback","#followher","#followbackteam","#followhim","#followall","#followalways","#followback","#me","#love","#pleasefollow","#follows","#follower","#following"]},{"name":"Shoutout","tags":["shoutout","#shoutouts","#shout","#out","#TagsForLikes.com","#TFLers","#TagsForLikesApp","#shoutouter","#instagood","#s4s","#shoutoutforshoutout","#shoutout4shoutout","#so","#so4so","#photooftheday","#ilovemyfollowers","#love","#sobackteam","#soback","#follow","#f4f","#followforfollow","#followback","#followhim","#followher","#followall","#followme","#shout_out"]},{"name":"Like","tags":["followme","#like4like","#TagsForLikes.com","#TFLers","#liker","#likes","#l4l","#likes4likes","#photooftheday","#love","#likeforlike","#likesforlikes","#liketeam","#likeback","#likebackteam","#instagood","#likeall","#likealways","#TagsForLikesApp","#liking"]},{"name":"Comment","tags":["comment","#comment4comment","#TagsForLikes.com","#TFLers","#c4c","#commenter","#comments","#commenting","#love","#comments4comments","#instagood","#commentteam","#commentback","#commentbackteam","#commentbelow","#photooftheday","#commentall","#commentalways","#pleasecomment"]}]},{"name":"Travel / Active / Sports","subCat":[{"name":"Travel","tags":["travel","#traveling","#TagsForLikes.com","#TFLers","#vacation","#visiting","#instatravel","#instago","#instagood","#trip","#holiday","#photooftheday","#fun","#travelling","#tourism","#tourist","#instapassport","#instatraveling","#mytravelgram","#travelgram","#travelingram","#igtravel"]},{"name":"Cars","tags":["cars","#car","#ride","#drive","#TagsForLikes.com","#driver","#sportscar","#vehicle","#vehicles","#street","#road","#freeway","#highway","#sportscars","#exotic","#exoticcar","#exoticcars","#speed","#tire","#tires","#spoiler","#muffler","#race","#racing","#wheel","#wheels","#rim","#rims","#engine","#horsepower"]},{"name":"Motorcycles","tags":["motorcycle","#motorcycles","#bike","#TagsForLikes.com","#ride","#rideout","#bike","#biker","#bikergang","#helmet","#cycle","#bikelife","#streetbike","#cc","#instabike","#instagood","#instamotor","#motorbike","#photooftheday","#instamotorcycle","#instamoto","#instamotogallery","#supermoto","#cruisin","#cruising","#bikestagram"]},{"name":"Skateboarding","tags":["skateboarding","#skating","#skater","#TagsForLikes.com","#instaskater","#sk8","#sk8er","#sk8ing","#sk8ordie","#photooftheday","#board","#longboard","#longboarding","#riding","#kickflip","#ollie","#instagood","#wheels","#skatephotoaday","#skateanddestroy","#skateeverydamnday","#skatespot","#skaterguy","#skatergirl","#skatepark","#skateboard","#skatelife"]},{"name":"Health / Fitness","tags":["health","#fitness","#fit","#TagsForLikes.com","#TFLers","#fitnessmodel","#fitnessaddict","#fitspo","#workout","#bodybuilding","#cardio","#gym","#train","#training","#photooftheday","#health","#healthy","#instahealth","#healthychoices","#active","#strong","#motivation","#instagood","#determination","#lifestyle","#diet","#getfit","#cleaneating","#eatclean","#exercise"]},{"name":"Bodybuilding","tags":["instafit","#motivation","#fit","#TagsForLikes.com","#TFLers","#fitness","#gymlife","#pushpullgrind","#grindout","#flex","#instafitness","#gym","#trainhard","#eatclean","#grow","#focus","#dedication","#strength","#ripped","#swole","#fitnessgear","#muscle","#shredded","#squat","#bigbench","#cardio","#sweat","#grind","#lifestyle","#pushpullgrind"]},{"name":"Sports","tags":["sports","#sport","#active","#fit","#TagsForLikes.com","#football","#soccer","#basketball","#futball","#ball","#gametime","#fun","#game","#games","#crowd","#fans","#play","#playing","#player","#field","#green","#grass","#score","#goal","#action","#kick","#throw","#pass","#win","#winning"]},{"name":"Running","tags":["run","#runner","#running","#TagsForLikes.com","#fit","#runtoinspire","#furtherfasterstronger","#seenonmyrun","#trailrunning","#trailrunner","#runchat","#runhappy","#instagood","#time2run","#instafit","#happyrunner","#marathon","#runners","#photooftheday","#trailrun","#fitness","#workout","#cardio","#training","#instarunner","#instarun","#workouttime"]},{"name":"Dance","tags":["dance","#dancer","#dancing","#TagsForLikes.com","#dancerecital","#music","#song","#songs","#ballet","#dancers","#dancefloor","#danceshoes","#instaballet","#studio","#instadance","#instagood","#workout","#cheer","#choreography","#flexible","#flexibility","#photooftheday","#love","#practice","#fun"]},{"name":"Cheerleading","tags":["cheer","#cheerleading","#cheerleader","#TagsForLikes.com","#TFLers","#cheerathletics","#stunt","#stunting","#tumbling","#jump","#toetouch","#flexible","#box","#stretch","#scale","#scorpion","#backtuck","#instacheer","#love","#cheerstagram","#sport","#fit","#cheerperfection","#cheerclassic","#instacheerleader","#cheerislife","#cheering","#cheersport","#cheerpassion","#cheerpractice"]},{"name":"Gymnastics","tags":["gymnastics","#gymnastic","#gymnast","#TagsForLikes.com","#gymnasts","#love","#fun","#flexible","#gymnastique","#gymnastlife","#beam","#vault","#bars","#training","#motivation","#gym","#flip","#gym","#stunt","#sport","#git","#leap","#TagsForLikesApp","#scale","#highbar","#flipping"]},{"name":"Basketball","tags":["basketball","#basket","#ball","#TagsForLikes.com","#baller","#hoop","#balling","#sports","#sport","#court","#net","#rim","#backboard","#instagood","#game","#photooftheday","#TFLers","#active","#pass","#throw","#shoot","#instaballer","#instaball","#jump","#nba","#bball"]},{"name":"Soccer","tags":["soccer","#ball","#futbol","#TagsForLikes.com","#futball","#kick","#pass","#shoot","#score","#goal","#field","#TFLers","#net","#team","#soccerball","#photooftheday","#instafutbol","#instagood","#grass","#run","#soccergame","#fifa","#worldcup"]},{"name":"Football","tags":["football","#ball","#pass","#TagsForLikes.com","#footballgame","#footballseason","#footballgames","#footballplayer","#instagood","#pass","#jersey","#stadium","#field","#yards","#photooftheday","#yardline","#pads","#touchdown","#TFLers","#catch","#quarterback","#fit","#grass","#nfl","#superbowl","#kickoff","#run"]},{"name":"Baseball","tags":["baseball","#base","#ball","#TagsForLikes.com","#bases","#homerun","#bat","#throw","#catch","#swing","#photooftheday","#field","#pitcher","#TFLers","#mlb","#firstbase","#game","#instagood","#secondbase","#thirdbase","#inning","#baseballbat","#mitt","#gloves","#out","#sport","#sports"]},{"name":"Hockey","tags":["hockey","#hockeystick","#puck","#TagsForLikes.com","#ice","#rink","#icerink","#hockeyplayer","#instagood","#hockeyplayers","#fight","#photooftheday","#shot","#skate","#TFLers","#hockeygram","#stanleycup","#score","#hockeylife","#pucklife","#nhl"]},{"name":"Super Bowl 2014","tags":["superbowl","#superbowlxlviii","#xlviii","#TagsForLikes.com","#superbowl2014","#2014superbowl","#superbowl48","#48","#photooftheday","#seavsden","#football","#nfl","#instagood","#sb48","#broncos","#seahawks","#TFLers","#seattle","#denver","#field","#touchdown","#kickoff","#sunday","#superbowlweekend"]},{"name":"Seattle Seahawks","tags":["seahawks","#sea","#gohawks","#TagsForLikes.com","#12s","#seahawksnation","#seattle","#seattleseahawks","#instagood","#hawks","#goseahawks","#goseattle","#TFLers","#superbowl","#superbowlxlvii","#xlvii","#superbowl2014","#2014superbowl","#superbowl48","#48","#sb48","#photooftheday","#football","#nfl"]},{"name":"Denver Broncos","tags":["broncos","#denver","#gobroncos","#TagsForLikes.com","#unitedinorange","#broncosnation","#denverbroncos","#instagood","#bronco","#godenver","#teammanning","#letsgobroncos","#TFLers","#superbowl","#superbowlxlvii","#xlvii","#superbowl2014","#2014superbowl","#superbowl48","#48","#sb48","#photooftheday","#football","#nfl"]},{"name":"San Francisco 49ers","tags":["49ers","#niners","#ninernation","#TagsForLikes.com","#questforsix","#quest4six","#redandgold","#faithful","#sanfrancsico","#instagood","#ninersfaithful","#49ersfaithful","#sfniners","#sf49ers","#TFLers","#superbowl","#superbowlxlvii","#xlvii","#superbowl2013","#2013superbowl","#harbowl","#harbaughbowl","#superbowl47","#47","#sb47","#photooftheday","#football","#nfl"]},{"name":"Baltimore Ravens","tags":["ravens","#ravensnation","#baltimoreravens","#TagsForLikes.com","#ravensfan","#nola","#baltimore","#instagood","#blackandpurple","#raylewis","#rayray","#TFLers","#superbowl","#superbowlxlvii","#xlvii","#superbowl2013","#2013superbowl","#harbowl","#harbaughbowl","#superbowl47","#47","#sb47","#photooftheday","#football","#nfl"]}]}]
-*/
-
+SET SERVEROUTPUT ON
 
 	CREATE TABLE users (
 		user_id NUMBER(10) NOT NULL,
@@ -117,23 +78,306 @@ $('h3 a').each(function(){
 		FOREIGN KEY (video_id) REFERENCES videos (video_id)
 	);
 
+
 DECLARE
-  TYPE tagsarray IS VARRAY(1200) OF VARCHAR2(200);
-  TYPE userarray IS VARRAY(150) OF VARCHAR2(200);
-  tags tagsarray;
-  
+  TYPE userarray IS VARRAY(150) OF VARCHAR2(200);     
+  names userarray;
   total integer;
 BEGIN
-  /* Tags upload */
-   tags := tagsarray('love', 'TagsForLikes', 'TagsForLikesApp', 'TFLers', 'tweegram', 'photooftheday', '20likes', 'amazing', 'smile', 'follow4follow', 'like4like', 'look', 'instalike', 'igers', 'picoftheday', 'food', 'instadaily', 'instafollow', 'followme', 'girl', 'iphoneonly', 'instagood', 'bestoftheday', 'instacool', 'instago', 'all_shots', 'follow', 'webstagram', 'colorful', 'style', 'swag', 'fun', 'instagramers', 'TagsForLikes', 'TagsForLikesApp', 'food', 'smile', 'pretty', 'followme', 'nature', 'lol', 'dog', 'hair', 'onedirection', 'sunset', 'swag', 'throwbackthursday', 'instagood', 'beach', 'statigram', 'friends', 'hot', 'funny', 'blue', 'life', 'art', 'instahub', 'photo', 'cool', 'pink', 'bestoftheday', 'clouds', 'amazing', 'TagsForLikes', 'TagsForLikesApp', 'followme', 'all_shots', 'textgram', 'family', 'instago', 'igaddict', 'awesome', 'girls', 'instagood', 'my', 'bored', 'baby', 'music', 'red', 'green', 'water', 'harrystyles', 'bestoftheday', 'black', 'party', 'white', 'yum', 'flower', '2012', 'night', 'instalove', 'niallhoran', 'jj_forum', 'nature', 'TagsForLikes', 'TagsForLikesApp', 'sky', 'sun', 'summer', 'beach', 'beautiful', 'pretty', 'sunset', 'sunrise', 'blue', 'flowers', 'night', 'tree', 'twilight', 'clouds', 'beauty', 'light', 'cloudporn', 'photooftheday', 'love', 'green', 'skylovers', 'dusk', 'weather', 'day', 'red', 'iphonesia', 'mothernature', 'beach', 'sun', 'nature', 'water', 'TagsForLikes', 'TagsForLikesApp', 'TFLers', 'ocean', 'lake', 'instagood', 'photooftheday', 'beautiful', 'sky', 'clouds', 'cloudporn', 'fun', 'pretty', 'sand', 'reflection', 'amazing', 'beauty', 'beautiful', 'shore', 'waterfoam', 'seashore', 'waves', 'wave', 'sunset', 'sunrise', 'sun', 'TagsForLikes', 'TagsForLikesApp', 'TFLers', 'pretty', 'beautiful', 'red', 'orange', 'pink', 'sky', 'skyporn', 'cloudporn', 'nature', 'clouds', 'horizon', 'photooftheday', 'instagood', 'gorgeous', 'warm', 'view', 'night', 'morning', 'silhouette', 'instasky', 'all_sunsets', 'flowers', 'flower', 'TagsForLikes', 'petal', 'petals', 'nature', 'beautiful', 'love', 'pretty', 'plants', 'blossom', 'sopretty', 'spring', 'summer', 'flowerstagram', 'flowersofinstagram', 'flowerstyles_gf', 'flowerslovers', 'flowerporn', 'botanical', 'floral', 'florals', 'insta_pick_blossom', 'flowermagic', 'instablooms', 'bloom', 'blooms', 'botanical', 'floweroftheday', 'sun', 'sunny', 'sunnyday', 'TagsForLikes', 'TagsForLikesApp', 'sunnydays', 'sunlight', 'light', 'sunshine', 'shine', 'nature', 'sky', 'skywatcher', 'thesun', 'sunrays', 'photooftheday', 'beautiful', 'beautifulday', 'weather', 'summer', 'goodday', 'goodweather', 'instasunny', 'instasun', 'instagood', 'clearskies', 'clearsky', 'blueskies', 'lookup', 'bright', 'brightsun', 'clouds', 'cloud', 'cloudporn', 'TagsForLikes', 'TagsForLikesApp', 'weather', 'lookup', 'sky', 'skies', 'skyporn', 'cloudy', 'instacloud', 'instaclouds', 'instagood', 'nature', 'beautiful', 'gloomy', 'skyline', 'horizon', 'overcast', 'instasky', 'epicsky', 'crazyclouds', 'photooftheday', 'cloud_skye', 'skyback', 'insta_sky_lovers', 'iskyhub', 'rain', 'raining', 'rainyday', 'TagsForLikes', 'TagsForLikesApp', 'pouring', 'rainydays', 'water', 'clouds', 'cloudy', 'photooftheday', 'puddle', 'umbrella', 'instagood', 'gloomy', 'rainyweather', 'rainydayz', 'splash', 'TFLers', 'downpour', 'instarain', 'snow', 'snowing', 'winter', 'TagsForLikes', 'cold', 'ice', 'white', 'weather', 'sky', 'skies', 'frosty', 'frost', 'chilly', 'TFLers', 'nature', 'snowflakes', 'instagood', 'instawinter', 'instasnow', 'photooftheday', 'snowfall', 'blizzard', 'spring', 'blossom', 'flowers', 'TagsForLikes', 'beautiful', 'season', 'seasons', 'instaspring', 'instagood', 'springtime', 'color', 'ilovespring', 'warm', 'sunny', 'sun', 'tree', 'pretty', 'TFLers', 'trees', 'flower', 'bloom', 'colorful', 'summer', 'summertime', 'sun', 'TagsForLikes', 'hot', 'sunny', 'warm', 'fun', 'beautiful', 'sky', 'clearskys', 'season', 'seasons', 'instagood', 'instasummer', 'photooftheday', 'nature', 'TFLers', 'clearsky', 'bluesky', 'vacationtime', 'weather', 'summerweather', 'sunshine', 'summertimeshine', 'fall', 'autumn', 'leaves', 'TagsForLikes', 'falltime', 'season', 'seasons', 'instafall', 'instagood', 'TFLers', 'instaautumn', 'photooftheday', 'leaf', 'foliage', 'colorful', 'orange', 'red', 'autumnweather', 'fallweather', 'nature', 'winter', 'cold', 'holidays', 'TagsForLikes', 'TagsForLikesApp', 'snow', 'rain', 'christmas', 'snowing', 'blizzard', 'snowflakes', 'wintertime', 'staywarm', 'cloudy', 'instawinter', 'instagood', 'holidayseason', 'photooftheday', 'season', 'seasons', 'nature', 'animals', 'animal', 'pet', 'TagsForLikes', 'TagsForLikesApp', 'dog', 'cat', 'dogs', 'cats', 'photooftheday', 'cute', 'pets', 'instagood', 'animales', 'cute', 'love', 'nature', 'animallovers', 'pets_of_instagram', 'petstagram', 'petsagram', 'dog', 'dog', 'puppy', 'pup', 'TagsForLikes', 'TagsForLikesApp', 'cute', 'eyes', 'instagood', 'dogs_of_instagram', 'pet', 'pets', 'animal', 'animals', 'petstagram', 'petsagram', 'dogsitting', 'photooftheday', 'dogsofinstagram', 'ilovemydog', 'instagramdogs', 'nature', 'dogstagram', 'dogoftheday', 'lovedogs', 'lovepuppies', 'hound', 'adorable', 'doglover', 'instapuppy', 'instadog', 'cat', 'cats', 'TagsForLikes', 'TagsForLikesApp', 'catsagram', 'catstagram', 'instagood', 'kitten', 'kitty', 'kittens', 'pet', 'pets', 'animal', 'animals', 'petstagram', 'petsagram', 'photooftheday', 'catsofinstagram', 'ilovemycat', 'instagramcats', 'nature', 'catoftheday', 'lovecats', 'furry', 'sleeping', 'lovekittens', 'adorable', 'catlover', 'instacat', 'horses', 'horse', 'horsesofinstagram', 'TagsForLikes', 'TagsForLikesApp', 'horseshow', 'horseshoe', 'horses_of_instagram', 'horsestagram', 'instahorses', 'wild', 'mane', 'instagood', 'grass', 'field', 'farm', 'nature', 'pony', 'ponies', 'ilovemyhorse', 'babyhorse', 'beautiful', 'pretty', 'photooftheday', 'gallop', 'jockey', 'rider', 'riders', 'riding', 'insects', 'insect', 'bug', 'bugs', 'TagsForLikes', 'TagsForLikesApp', 'bugslife', 'macro', 'closeup', 'nature', 'animals', 'animals', 'instanature', 'instagood', 'macrogardener', 'macrophotography', 'creature', 'creatures', 'macro_creature_feature', 'photooftheday', 'wildlife', 'nature_shooters', 'earth', 'naturelover', 'lovenature', 'fish', 'aquarium', 'fishtank', 'TagsForLikes', 'TagsForLikesApp', 'fishporn', 'instafish', 'instagood', 'swim', 'swimming', 'water', 'coral', 'reef', 'reeftank', 'tropical', 'tropicalfish', 'aquaria', 'photooftheday', 'saltwater', 'freshwater', 'beautiful', 'ocean', 'watertank', 'love', 'TagsForLikes', 'TagsForLikesApp', 'photooftheday', 'me', 'instamood', 'cute', 'igers', 'picoftheday', 'girl', 'guy', 'beautiful', 'fashion', 'instagramers', 'follow', 'smile', 'pretty', 'followme', 'friends', 'hair', 'swag', 'photo', 'life', 'funny', 'cool', 'hot', 'bored', 'portrait', 'baby', 'girls', 'iphonesia', 'selfie', 'selfienation', 'selfies', 'TagsForLikes', 'TFLers', 'TagsForLikesApp', 'me', 'love', 'pretty', 'handsome', 'instagood', 'instaselfie', 'selfietime', 'face', 'shamelessselefie', 'life', 'hair', 'portrait', 'igers', 'fun', 'followme', 'instalove', 'smile', 'igdaily', 'eyes', 'follow', 'girl', 'girls', 'love', 'TagsForLikes', 'TFLers', 'me', 'cute', 'picoftheday', 'beautiful', 'photooftheday', 'instagood', 'fun', 'smile', 'pretty', 'follow', 'followme', 'hair', 'friends', 'lady', 'swag', 'hot', 'cool', 'kik', 'fashion', 'igers', 'instagramers', 'style', 'sweet', 'eyes', 'beauty', 'guys', 'guy', 'boy', 'TagsForLikes', 'TFLers', 'boys');   
-   total := tags.count;
-   FOR i in 1 .. total LOOP
-    INSERT INTO tags VALUES(i,tags(i));
-   END LOOP;
-   
+
+  INSERT ALL
+    INTO category (category_id, name) VALUES (0,'Nature ')
+    INTO category (category_id, name) VALUES (5,'Weather / Seasons ')
+    INTO category (category_id, name) VALUES (14,'Animal ')
+    INTO category (category_id, name) VALUES (21,'Social / People ')
+    INTO category (category_id, name) VALUES (30,'Holidays / Celebrations ')
+    INTO category (category_id, name) VALUES (39,'Family ')
+    INTO category (category_id, name) VALUES (43,'Art / Photography ')
+    INTO category (category_id, name) VALUES (51,'Urban ')
+    INTO category (category_id, name) VALUES (56,'Food ')
+    INTO category (category_id, name) VALUES (62,'Fashion ')
+    INTO category (category_id, name) VALUES (77,'Celebrities ')
+    INTO category (category_id, name) VALUES (97,'Entertainment ')
+    INTO category (category_id, name) VALUES (102,'Electronics ')
+    INTO category (category_id, name) VALUES (106,'Follow / Shoutout / Like / Comment ')
+    INTO category (category_id, name) VALUES (112,'Travel / Active / Sports')
+    INTO category (category_id, name, parent_id) VALUES (1, 'General', 0)
+    INTO category (category_id, name, parent_id) VALUES (2, 'Beach', 0)
+    INTO category (category_id, name, parent_id) VALUES (3, 'Sunset / Sunrise', 0)
+    INTO category (category_id, name, parent_id) VALUES (4, 'Flowers', 0)
+    INTO category (category_id, name, parent_id) VALUES (6, 'Sunny', 5)
+    INTO category (category_id, name, parent_id) VALUES (7, 'Cloudy', 5)
+    INTO category (category_id, name, parent_id) VALUES (8, 'Raining', 5)
+    INTO category (category_id, name, parent_id) VALUES (9, 'Snowing', 5)
+    INTO category (category_id, name, parent_id) VALUES (10, 'Spring', 5)
+    INTO category (category_id, name, parent_id) VALUES (11, 'Summer', 5)
+    INTO category (category_id, name, parent_id) VALUES (12, 'Fall', 5)
+    INTO category (category_id, name, parent_id) VALUES (13, 'Winter', 5)
+    INTO category (category_id, name, parent_id) VALUES (15, 'General', 14)
+    INTO category (category_id, name, parent_id) VALUES (16, 'Dogs', 14)
+    INTO category (category_id, name, parent_id) VALUES (17, 'Cats', 14)
+    INTO category (category_id, name, parent_id) VALUES (18, 'Horses', 14)
+    INTO category (category_id, name, parent_id) VALUES (19, 'Insects', 14)
+    INTO category (category_id, name, parent_id) VALUES (20, 'Fish', 14)
+    INTO category (category_id, name, parent_id) VALUES (22, 'General', 21)
+    INTO category (category_id, name, parent_id) VALUES (23, 'Selfies', 21)
+    INTO category (category_id, name, parent_id) VALUES (24, 'Girls', 21)
+    INTO category (category_id, name, parent_id) VALUES (25, 'Guys', 21)
+    INTO category (category_id, name, parent_id) VALUES (26, 'Love', 21)
+    INTO category (category_id, name, parent_id) VALUES (27, 'Friends', 21)
+    INTO category (category_id, name, parent_id) VALUES (28, 'Good Morning', 21)
+    INTO category (category_id, name, parent_id) VALUES (29, 'Good Night', 21)
+    INTO category (category_id, name, parent_id) VALUES (31, 'Party', 30)
+    INTO category (category_id, name, parent_id) VALUES (32, 'Birthday', 30)
+    INTO category (category_id, name, parent_id) VALUES (33, 'Wedding', 30)
+    INTO category (category_id, name, parent_id) VALUES (34, 'Thanksgiving', 30)
+    INTO category (category_id, name, parent_id) VALUES (35, 'Halloween', 30)
+    INTO category (category_id, name, parent_id) VALUES (36, 'Christmas', 30)
+    INTO category (category_id, name, parent_id) VALUES (37, 'New Years Day', 30)
+    INTO category (category_id, name, parent_id) VALUES (38, 'Holidays', 30)
+    INTO category (category_id, name, parent_id) VALUES (40, 'General', 39)
+    INTO category (category_id, name, parent_id) VALUES (41, 'Babies', 39)
+    INTO category (category_id, name, parent_id) VALUES (42, 'Kids', 39)
+    INTO category (category_id, name, parent_id) VALUES (44, 'Art', 43)
+    INTO category (category_id, name, parent_id) VALUES (45, 'Photography', 43)
+    INTO category (category_id, name, parent_id) VALUES (46, 'HDR', 43)
+    INTO category (category_id, name, parent_id) VALUES (47, 'Black & White', 43)
+    INTO category (category_id, name, parent_id) VALUES (48, 'Minimalism', 43)
+    INTO category (category_id, name, parent_id) VALUES (49, 'Abstract', 43)
+    INTO category (category_id, name, parent_id) VALUES (50, 'Instagram', 43)
+    INTO category (category_id, name, parent_id) VALUES (52, 'Architecture', 51)
+    INTO category (category_id, name, parent_id) VALUES (53, 'Street Art', 51)
+    INTO category (category_id, name, parent_id) VALUES (54, 'VSCO', 51)
+    INTO category (category_id, name, parent_id) VALUES (55, 'VSCO 2', 51)
+    INTO category (category_id, name, parent_id) VALUES (57, 'General', 56)
+    INTO category (category_id, name, parent_id) VALUES (58, 'Dessert', 56)
+    INTO category (category_id, name, parent_id) VALUES (59, 'Drinks', 56)
+    INTO category (category_id, name, parent_id) VALUES (60, 'Coffee', 56)
+    INTO category (category_id, name, parent_id) VALUES (61, 'Tea', 56)
+    INTO category (category_id, name, parent_id) VALUES (63, 'Fashion', 62)
+    INTO category (category_id, name, parent_id) VALUES (64, 'Fashion (Girls)', 62)
+    INTO category (category_id, name, parent_id) VALUES (65, 'Fashion (Guys)', 62)
+    INTO category (category_id, name, parent_id) VALUES (66, 'OOTD / Outfit Of The Day', 62)
+    INTO category (category_id, name, parent_id) VALUES (67, 'Nails', 62)
+    INTO category (category_id, name, parent_id) VALUES (68, 'Hair', 62)
+    INTO category (category_id, name, parent_id) VALUES (69, 'Makeup', 62)
+    INTO category (category_id, name, parent_id) VALUES (70, 'Jewelry', 62)
+    INTO category (category_id, name, parent_id) VALUES (71, 'Bracelets', 62)
+    INTO category (category_id, name, parent_id) VALUES (72, 'Earrings', 62)
+    INTO category (category_id, name, parent_id) VALUES (73, 'High Heels', 62)
+    INTO category (category_id, name, parent_id) VALUES (74, 'Sneakers', 62)
+    INTO category (category_id, name, parent_id) VALUES (75, 'Tattoos', 62)
+    INTO category (category_id, name, parent_id) VALUES (76, 'Piercings', 62)
+    INTO category (category_id, name, parent_id) VALUES (78, 'One Direction', 77)
+    INTO category (category_id, name, parent_id) VALUES (79, 'Justin Bieber', 77)
+    INTO category (category_id, name, parent_id) VALUES (80, 'Taylor Swift', 77)
+    INTO category (category_id, name, parent_id) VALUES (81, 'Katy Perry', 77)
+    INTO category (category_id, name, parent_id) VALUES (82, 'Liam Payne', 77)
+    INTO category (category_id, name, parent_id) VALUES (83, 'Niall Horan', 77)
+    INTO category (category_id, name, parent_id) VALUES (84, 'Louis Tomlinson', 77)
+    INTO category (category_id, name, parent_id) VALUES (85, 'Zayn Malik', 77)
+    INTO category (category_id, name, parent_id) VALUES (86, 'Harry Styles', 77)
+    INTO category (category_id, name, parent_id) VALUES (87, 'Lil Wayne', 77)
+    INTO category (category_id, name, parent_id) VALUES (88, 'Drake', 77)
+    INTO category (category_id, name, parent_id) VALUES (89, 'Selena Gomez', 77)
+    INTO category (category_id, name, parent_id) VALUES (90, 'Miley Cyrus', 77)
+    INTO category (category_id, name, parent_id) VALUES (91, 'Demi Lovato', 77)
+    INTO category (category_id, name, parent_id) VALUES (92, 'Ariana Grande', 77)
+    INTO category (category_id, name, parent_id) VALUES (93, 'Chris Brown', 77)
+    INTO category (category_id, name, parent_id) VALUES (94, 'Rihanna', 77)
+    INTO category (category_id, name, parent_id) VALUES (95, 'Austin Mahone', 77)
+    INTO category (category_id, name, parent_id) VALUES (96, '5 Seconds of Summer', 77)
+    INTO category (category_id, name, parent_id) VALUES (98, 'Music', 97)
+    INTO category (category_id, name, parent_id) VALUES (99, 'Movies', 97)
+    INTO category (category_id, name, parent_id) VALUES (100, 'Books', 97)
+    INTO category (category_id, name, parent_id) VALUES (101, 'Video Games', 97)
+    INTO category (category_id, name, parent_id) VALUES (103, 'General', 102)
+    INTO category (category_id, name, parent_id) VALUES (104, 'iPhone', 102)
+    INTO category (category_id, name, parent_id) VALUES (105, 'Android', 102)
+    INTO category (category_id, name, parent_id) VALUES (107, 'FSLC (Follow / Shoutout / Like / Comment)', 106)
+    INTO category (category_id, name, parent_id) VALUES (108, 'Follow', 106)
+    INTO category (category_id, name, parent_id) VALUES (109, 'Shoutout', 106)
+    INTO category (category_id, name, parent_id) VALUES (110, 'Like', 106)
+    INTO category (category_id, name, parent_id) VALUES (111, 'Comment', 106)
+    INTO category (category_id, name, parent_id) VALUES (113, 'Travel', 112)
+    INTO category (category_id, name, parent_id) VALUES (114, 'Cars', 112)
+    INTO category (category_id, name, parent_id) VALUES (115, 'Motorcycles', 112)
+    INTO category (category_id, name, parent_id) VALUES (116, 'Skateboarding', 112)
+    INTO category (category_id, name, parent_id) VALUES (117, 'Health / Fitness', 112)
+    INTO category (category_id, name, parent_id) VALUES (118, 'Bodybuilding', 112)
+    INTO category (category_id, name, parent_id) VALUES (119, 'Sports', 112)
+    INTO category (category_id, name, parent_id) VALUES (120, 'Running', 112)
+    INTO category (category_id, name, parent_id) VALUES (121, 'Dance', 112)
+    INTO category (category_id, name, parent_id) VALUES (122, 'Cheerleading', 112)
+    INTO category (category_id, name, parent_id) VALUES (123, 'Gymnastics', 112)
+    INTO category (category_id, name, parent_id) VALUES (124, 'Basketball', 112)
+    INTO category (category_id, name, parent_id) VALUES (125, 'Soccer', 112)
+    INTO category (category_id, name, parent_id) VALUES (126, 'Football', 112)
+    INTO category (category_id, name, parent_id) VALUES (127, 'Baseball', 112)
+    INTO category (category_id, name, parent_id) VALUES (128, 'Hockey', 112)
+    INTO category (category_id, name, parent_id) VALUES (129, 'Super Bowl 2014', 112)
+    INTO category (category_id, name, parent_id) VALUES (130, 'Seattle Seahawks', 112)
+    INTO category (category_id, name, parent_id) VALUES (131, 'Denver Broncos', 112)
+    INTO category (category_id, name, parent_id) VALUES (132, 'San Francisco 49ers', 112)
+    INTO category (category_id, name, parent_id) VALUES (133, 'Baltimore Ravens', 112) 
+    INTO tags (tag_id, name, category_id) VALUES (0, 'nature', 1)
+    INTO tags (tag_id, name, category_id) VALUES (1, 'TagsForLikes.com', 1)
+    INTO tags (tag_id, name, category_id) VALUES (2, 'TagsForLikesApp', 1)
+    INTO tags (tag_id, name, category_id) VALUES (3, 'sky', 1)
+    INTO tags (tag_id, name, category_id) VALUES (4, 'sun', 1)
+    INTO tags (tag_id, name, category_id) VALUES (5, 'summer', 1)
+    INTO tags (tag_id, name, category_id) VALUES (6, 'beach', 2)
+    INTO tags (tag_id, name, category_id) VALUES (7, 'sunset', 3)
+    INTO tags (tag_id, name, category_id) VALUES (8, 'flowers', 4)
+    INTO tags (tag_id, name, category_id) VALUES (9, 'sun', 6)
+    INTO tags (tag_id, name, category_id) VALUES (10, 'clouds', 7)
+    INTO tags (tag_id, name, category_id) VALUES (11, 'rain', 8)
+    INTO tags (tag_id, name, category_id) VALUES (12, 'snow', 9)
+    INTO tags (tag_id, name, category_id) VALUES (13, 'spring', 10)
+    INTO tags (tag_id, name, category_id) VALUES (14, 'summer', 11)
+    INTO tags (tag_id, name, category_id) VALUES (15, 'fall', 12)
+    INTO tags (tag_id, name, category_id) VALUES (16, 'winter', 13)
+    INTO tags (tag_id, name, category_id) VALUES (17, 'animals', 15)
+    INTO tags (tag_id, name, category_id) VALUES (18, 'dog', 16)
+    INTO tags (tag_id, name, category_id) VALUES (19, 'cat', 17)
+    INTO tags (tag_id, name, category_id) VALUES (20, 'horses', 18)
+    INTO tags (tag_id, name, category_id) VALUES (21, 'insects', 19)
+    INTO tags (tag_id, name, category_id) VALUES (22, 'fish', 20)
+    INTO tags (tag_id, name, category_id) VALUES (23, 'love', 22)
+    INTO tags (tag_id, name, category_id) VALUES (24, 'selfie', 23)
+    INTO tags (tag_id, name, category_id) VALUES (25, 'girl', 24)
+    INTO tags (tag_id, name, category_id) VALUES (26, 'guys', 25)
+    INTO tags (tag_id, name, category_id) VALUES (27, 'love', 26)
+    INTO tags (tag_id, name, category_id) VALUES (28, 'friend', 27)
+    INTO tags (tag_id, name, category_id) VALUES (29, 'goodmorning', 28)
+    INTO tags (tag_id, name, category_id) VALUES (30, 'goodnight', 29)
+    INTO tags (tag_id, name, category_id) VALUES (31, 'party', 31)
+    INTO tags (tag_id, name, category_id) VALUES (32, 'birthday', 32)
+    INTO tags (tag_id, name, category_id) VALUES (33, 'wedding', 33)
+    INTO tags (tag_id, name, category_id) VALUES (34, 'thanksgiving', 34)
+    INTO tags (tag_id, name, category_id) VALUES (35, 'halloween', 35)
+    INTO tags (tag_id, name, category_id) VALUES (36, 'christmas', 36)
+    INTO tags (tag_id, name, category_id) VALUES (37, 'happynewyear', 37)
+    INTO tags (tag_id, name, category_id) VALUES (38, 'happyholidays', 38)
+    INTO tags (tag_id, name, category_id) VALUES (39, 'family', 40)
+    INTO tags (tag_id, name, category_id) VALUES (40, 'baby', 41)
+    INTO tags (tag_id, name, category_id) VALUES (41, 'kids', 42)
+    INTO tags (tag_id, name, category_id) VALUES (42, 'art', 44)
+    INTO tags (tag_id, name, category_id) VALUES (43, 'photo', 45)
+    INTO tags (tag_id, name, category_id) VALUES (44, 'hdr', 46)
+    INTO tags (tag_id, name, category_id) VALUES (45, 'blackandwhite', 47)
+    INTO tags (tag_id, name, category_id) VALUES (46, 'minimalism', 48)
+    INTO tags (tag_id, name, category_id) VALUES (47, 'abstract', 49)
+    INTO tags (tag_id, name, category_id) VALUES (48, 'instagrammers', 50)
+    INTO tags (tag_id, name, category_id) VALUES (49, 'architecture', 52)
+    INTO tags (tag_id, name, category_id) VALUES (50, 'streetart', 53)
+    INTO tags (tag_id, name, category_id) VALUES (51, 'vsco', 54)
+    INTO tags (tag_id, name, category_id) VALUES (52, 'vscoeurope', 55)
+    INTO tags (tag_id, name, category_id) VALUES (53, 'food', 57)
+    INTO tags (tag_id, name, category_id) VALUES (54, 'dessert', 58)
+    INTO tags (tag_id, name, category_id) VALUES (55, 'drink', 59)
+    INTO tags (tag_id, name, category_id) VALUES (56, 'coffee', 60)
+    INTO tags (tag_id, name, category_id) VALUES (57, 'tea', 61)
+    INTO tags (tag_id, name, category_id) VALUES (58, 'fashion', 63)
+    INTO tags (tag_id, name, category_id) VALUES (59, 'fashion', 64)
+    INTO tags (tag_id, name, category_id) VALUES (60, 'fashion', 65)
+    INTO tags (tag_id, name, category_id) VALUES (61, 'ootd', 66)
+    INTO tags (tag_id, name, category_id) VALUES (62, 'nails', 67)
+    INTO tags (tag_id, name, category_id) VALUES (63, 'hair', 68)
+    INTO tags (tag_id, name, category_id) VALUES (64, 'makeup', 69)
+    INTO tags (tag_id, name, category_id) VALUES (65, 'jewelry', 70)
+    INTO tags (tag_id, name, category_id) VALUES (66, 'bracelets', 71)
+    INTO tags (tag_id, name, category_id) VALUES (67, 'earrings', 72)
+    INTO tags (tag_id, name, category_id) VALUES (68, 'highheels', 73)
+    INTO tags (tag_id, name, category_id) VALUES (69, 'shoes', 74)
+    INTO tags (tag_id, name, category_id) VALUES (70, 'tattoo', 75)
+    INTO tags (tag_id, name, category_id) VALUES (71, 'piercing', 76)
+    INTO tags (tag_id, name, category_id) VALUES (72, 'onedirection', 78)
+    INTO tags (tag_id, name, category_id) VALUES (73, 'justin', 79)
+    INTO tags (tag_id, name, category_id) VALUES (74, 'taylor', 80)
+    INTO tags (tag_id, name, category_id) VALUES (75, 'katy', 81)
+    INTO tags (tag_id, name, category_id) VALUES (76, 'liampayne', 82)
+    INTO tags (tag_id, name, category_id) VALUES (77, 'niallhoran', 83)
+    INTO tags (tag_id, name, category_id) VALUES (78, 'louistomlinson', 84)
+    INTO tags (tag_id, name, category_id) VALUES (79, 'zaynmalik', 85)
+    INTO tags (tag_id, name, category_id) VALUES (80, 'harrystyles', 86)
+    INTO tags (tag_id, name, category_id) VALUES (81, 'lilwayne', 87)
+    INTO tags (tag_id, name, category_id) VALUES (82, 'drake', 88)
+    INTO tags (tag_id, name, category_id) VALUES (83, 'selenagomez', 89)
+    INTO tags (tag_id, name, category_id) VALUES (84, 'mileycyrus', 90)
+    INTO tags (tag_id, name, category_id) VALUES (85, 'demilovato', 91)
+    INTO tags (tag_id, name, category_id) VALUES (86, 'ariana', 92)
+    INTO tags (tag_id, name, category_id) VALUES (87, 'chrisbrown', 93)
+    INTO tags (tag_id, name, category_id) VALUES (88, 'rihanna', 94)
+    INTO tags (tag_id, name, category_id) VALUES (89, 'austin', 95)
+    INTO tags (tag_id, name, category_id) VALUES (90, '5sos', 96)
+    INTO tags (tag_id, name, category_id) VALUES (91, 'music', 98)
+    INTO tags (tag_id, name, category_id) VALUES (92, 'movies', 99)
+    INTO tags (tag_id, name, category_id) VALUES (93, 'books', 100)
+    INTO tags (tag_id, name, category_id) VALUES (94, 'videogames', 101)
+    INTO tags (tag_id, name, category_id) VALUES (95, 'electronics', 103)
+    INTO tags (tag_id, name, category_id) VALUES (96, 'iphone', 104)
+    INTO tags (tag_id, name, category_id) VALUES (97, 'android', 105)
+    INTO tags (tag_id, name, category_id) VALUES (98, 'fslc', 107)
+    INTO tags (tag_id, name, category_id) VALUES (99, 'follow', 108)
+    INTO tags (tag_id, name, category_id) VALUES (100, 'shoutout', 109)
+    INTO tags (tag_id, name, category_id) VALUES (101, 'followme', 110)
+    INTO tags (tag_id, name, category_id) VALUES (102, 'comment', 111)
+    INTO tags (tag_id, name, category_id) VALUES (103, 'travel', 113)
+    INTO tags (tag_id, name, category_id) VALUES (104, 'cars', 114)
+    INTO tags (tag_id, name, category_id) VALUES (105, 'motorcycle', 115)
+    INTO tags (tag_id, name, category_id) VALUES (106, 'skateboarding', 116)
+    INTO tags (tag_id, name, category_id) VALUES (107, 'health', 117)
+    INTO tags (tag_id, name, category_id) VALUES (108, 'instafit', 118)
+    INTO tags (tag_id, name, category_id) VALUES (109, 'sports', 119)
+    INTO tags (tag_id, name, category_id) VALUES (110, 'run', 120)
+    INTO tags (tag_id, name, category_id) VALUES (111, 'dance', 121)
+    INTO tags (tag_id, name, category_id) VALUES (112, 'cheer', 122)
+    INTO tags (tag_id, name, category_id) VALUES (113, 'gymnastics', 123)
+    INTO tags (tag_id, name, category_id) VALUES (114, 'basketball', 124)
+    INTO tags (tag_id, name, category_id) VALUES (115, 'soccer', 125)
+    INTO tags (tag_id, name, category_id) VALUES (116, 'football', 126)
+    INTO tags (tag_id, name, category_id) VALUES (117, 'baseball', 127)
+    INTO tags (tag_id, name, category_id) VALUES (118, 'hockey', 128)
+    INTO tags (tag_id, name, category_id) VALUES (119, 'superbowl', 129)
+    INTO tags (tag_id, name, category_id) VALUES (120, 'seahawks', 130)
+    INTO tags (tag_id, name, category_id) VALUES (121, 'broncos', 131)
+    INTO tags (tag_id, name, category_id) VALUES (122, '49ers', 132)
+    INTO tags (tag_id, name, category_id) VALUES (123, 'ravens', 133)
+  SELECT * FROM dual;
+  
+  /* user generator */
    names := userarray('111111','123456','12345678','abc123','abramov','account','accounting','ad','adm','admin','administrator','adver','advert','advertising','afanasev','agafonov','agata','aksenov','aleksander','aleksandrov','alekse','alenka','alexe','alexeev','alla','anatol','andre','andreev','andrey','anna','anya','ao','aozt','arhipov','art','avdeev','avto','bank','baranov','Baseball','belousov','bill','billing','blinov','bobrov','bogdanov','buh','buhg','buhgalter','buhgalteria','business','bux','catchthismail','company','contact','contactus','corp','design','dir','director','direktor','dragon','economist','edu','email','er','expert','export','fabrika','fin','finance','ftp','glavbuh','glavbux','glbuh','helloitmenice','help','holding','home','hr','iamjustsendingthisleter','info','ingthisleter','job','john','kadry','letmein','mail','manager','marketing','marketing','mike','mogggnomgon','monkey','moscow','mysql','office','ok','oracle','password','personal','petgord34truew','post','postmaster','pr','qwerty','rbury','reklama','root','root','sale','sales','secretar','sekretar','support','test','testing','thisisjusttestletter','trade','uploader','user','webmaster','www-data');
    total := names.count;
-      FOR i in 1 .. total LOOP
-    INSERT INTO names VALUES(i,names(i),'12345',names(i),names(i));
+   FOR i in 1 .. total LOOP
+    INSERT INTO users VALUES(i,names(i),'12345',names(i),names(i));
    END LOOP;
+   
+   /* video and comment generator */
+   total := 123;
+   FOR i in 0 .. 123 LOOP
+    INSERT INTO videos VALUES (i,'namne','DESCRIPTION',(i*50), (SELECT DATE),'video',i,i);
+    INSERT INTO comments VALUES (i,'COMMENT FOR VIDEO', total,i);
+    INSERT INTO videotags VALUES ((SELECT tag_id FROM tags WHERE category_id == i),i);
+    total := (total-1);
+   END LOOP;
+   
+   /* WATCHED */
+   FOR i in 0 .. 80 LOOP
+    FOR x in 0 .. 25 LOOP
+      INSERT INTO watched VALUES (x,i);
+    END LOOP;
+   END LOOP;
+   
+   /* PLAYLIST */
+   FOR i in 0 .. 50 LOOP
+    INSERT INTO playlist VALUES (i,'PLAYLIST1',i);
+   END LOOP;
+   
+   FOR i in 0 .. 25 LOOP
+    FOR x in 0 .. 50 LOOP
+      INSERT INTO playlistvideo VALUES (i,x);
+    END LOOP;
+   END LOOP;
+  
 END;
