@@ -1,5 +1,30 @@
 /* 
 * Table creator 
+*
+*
+* http://www.tagsforlikes.com/
+$('.tags:nth-of-type(7) .row').first().remove();
+$('.tags:nth-of-type(7) .row').last().remove();
+$('h6').remove();
+$('br').remove();
+var tags = [];
+$('h3 a').each(function(){
+	var category = $(this).text();
+	category = category.replace("►  ", "");
+	if (category !== ''){
+		var subCat = [];
+		$(this).parents('.aisle').find('h4').each(function(){
+			var name = $(this).text();
+			var tags = $(this).next().text();
+			tags = tags.replace("#", "");
+			tags = tags.split(" ");
+			subCat[name] = tags;
+		});
+		tags[category] = subCat;
+
+	}
+	
+});
 */
 
 	CREATE TABLE users (
@@ -67,7 +92,10 @@
 
 	CREATE TABLE tags (
 		tag_id number(10) NOT NULL,
-		name VARCHAR2(255) NOT NULL
+		name VARCHAR2(255) NOT NULL,
+		category_id number(10),
+		PRIMARY KEY(tag_id),
+		FOREIGN KEY (category_id) REFERENCES category (category_id)
 	);
 
 	CREATE TABLE videotags (
