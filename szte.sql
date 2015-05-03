@@ -356,9 +356,9 @@ BEGIN
    /* video and comment generator */
    total := 123;
    FOR i in 0 .. 123 LOOP
-    INSERT INTO videos VALUES (i,'namne','DESCRIPTION',(i*50), (SELECT DATE),'video',i,i);
+    INSERT INTO videos VALUES (i,(SELECT name FROM tags WHERE category_id = i),'DESCRIPTION',(i*50),(SELECT DATE),'video',i,i);
     INSERT INTO comments VALUES (i,'COMMENT FOR VIDEO', total,i);
-    INSERT INTO videotags VALUES ((SELECT tag_id FROM tags WHERE category_id == i),i);
+    INSERT INTO videotags VALUES ((Select tag_id from tags WHERE category_id = i LIMIT 1),i);
     total := (total-1);
    END LOOP;
    
